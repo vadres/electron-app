@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  background-color: rgb(240,240,240);
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 0.9em;
+  color: #333;
+}
+
+#loader {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(240,240,240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lds-dual-ring {
+  margin-top: -30px;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(120,120,235);
+  border-color: rgb(120,120,235) transparent rgb(120,120,235) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.form {
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form > .input-group {
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  width: 100%;
+  padding: 6px 15px;
+  display: block;
+  
+  background-color: rgb(120,120,235);
+  color: #fefefe;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+button:hover,
+button:active,
+button:focus {
+  background-color: rgb(140,140,255);
+}
+
+.input-group label {
+  margin-right: 15px;
+  line-height: 2;
+}
+
+
+.input-group input {
+  padding: 4px 15px;
+}
+
+
+#hash {
+  width: 100%;
+  padding: 6px 15px;
+  color: #fff;
+  background-color: rgb(120,120,235);
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  display: inline-block;
+  color: rgb(85, 85, 95);
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.message {
+  padding: 20px;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  background-color: rgb(115, 115, 115);
+  color: white;
+  border: blue;
+  top: 10px;
+}
+
+.message.success {
+  background-color: seagreen;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Ponto</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" type="text/css" href="style/app.css">
+</head>
+<body>
+    <div class="message success">
+      Ola, cadastro feito com sucesso.
+      isso é um teste ignore
+      Ola, cadastro feito com sucesso.
+      isso é um teste ignore
+    </div>
+
+    <div id="loader">
+      <div class="lds-dual-ring"></div>
+    </div>
+
+    <section class="form" id="form-index">
+      <span class="title">Registro de ponto</span>
+      <div class="input-group">
+        <label for="matricula">Matrícula</label>
+        <input type="text" name="matricula" id="matricula">
+      </div>
+      
+      <div class="input-group">
+          <label for="senha">Senha</label>
+          <input type="password" name="senha" id="senha">
+      </div>
+        
+      <button onclick="() => {}">Registrar Ponto</button>
+    </section>
+       
+    <section class="form" id="form-setup">
+      <span class="title">Configuração da Aplicação</span>
+
+      <div class="input-group">
+        <label for="filial">ID Filial</label>
+        <input type="text" name="filial" id="filial">
+      </div>
+      
+      <div class="input-group">
+          <label for="ip">IP</label>
+          <input type="text" name="ip" id="ip">
+      </div>
+        
+      <button onclick="saveConfig()">Confirmar</button>
+    </section>
+
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

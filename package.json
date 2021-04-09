@@ -1,0 +1,24 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^12.0.2",
+    "electron-reloader": "^1.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ip": "^1.1.5",
+    "macaddress": "^0.5.1",
+    "sqlite": "^4.0.21",
+    "sqlite3": "^5.0.2"
+  }
+}
