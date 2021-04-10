@@ -15,15 +15,17 @@ const saveConfig = () => {
     setTimeout(async () => {
       const db = window.require('../data/db');
       const isFirstAccess = await db.config();  
-      if (isFirstAccess) {
+      
+      const sec = isFirstAccess? 'form-index': 'form-setup';
+      
+      document.getElementById('loader').classList.add('fadeOut');
+      document.getElementById(sec).style.display = 'none';
+      
+      setTimeout(() => {
         document.getElementById('loader').remove();
-        document.getElementById('form-index').style.display = 'none';
-      } else {
-        document.getElementById('loader').remove();
-        document.getElementById('form-setup').style.display = 'none';
-      }
+      }, 400);
 
-    }, 500)
+    }, 800)
 
     document.getElementById('filial').onkeyup = (e) => {
         e.target.value = e.target.value.replace(/[^0-9]/g, ''); 

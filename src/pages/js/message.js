@@ -1,16 +1,19 @@
 const closeMessage = (id) => {
-  document.getElementById(id)?.remove();
+  return new Promise(function(resolve, reject) {
+    document.getElementById(id)?.classList.add("fadeOut");
+    setTimeout(() => resolve(document.getElementById(id)?.remove()), 400);
+  })
 }
 
 module.exports = {
     SUCCESS: "success",
     ERROR: "error",
-    createMessage: (type, message) => {
-        closeMessage("message");
+    createMessage: async (type, message) => {
+        await closeMessage("message");
 
         const div = document.createElement("div");
         div.id = "message";
-        div.classList.add("message", type);
+        div.classList.add("message", "fadeIn", type);
         div.innerHTML = message;
                 
         const close = document.createElement("a");
