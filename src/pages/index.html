@@ -11,13 +11,6 @@
     <link rel="stylesheet" type="text/css" href="style/app.css">
 </head>
 <body>
-    <div class="message success">
-      Ola, cadastro feito com sucesso.
-      isso é um teste ignore
-      Ola, cadastro feito com sucesso.
-      isso é um teste ignore
-    </div>
-
     <div id="loader">
       <div class="lds-dual-ring"></div>
     </div>
@@ -34,7 +27,7 @@
           <input type="password" name="senha" id="senha">
       </div>
         
-      <button onclick="() => {}">Registrar Ponto</button>
+      <button onclick="registrarPonto()">Registrar Ponto</button>
     </section>
        
     <section class="form" id="form-setup">
@@ -46,13 +39,14 @@
       </div>
       
       <div class="input-group">
-          <label for="ip">IP</label>
+          <label for="ip">IP Range</label>
           <input type="text" name="ip" id="ip">
       </div>
         
       <button onclick="saveConfig()">Confirmar</button>
     </section>
 
+    <script type="text/javascript" src="js/request.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-const db = window.require('../data/db');
-        
+
 const saveConfig = () => {
+    const db = window.require('../data/db');
     const ip = document.getElementById('ip').value;
     const filial = document.getElementById('filial').value;
 
@@ -13,6 +13,7 @@ const saveConfig = () => {
 
 (() => {
     setTimeout(async () => {
+      const db = window.require('../data/db');
       const isFirstAccess = await db.config();  
       if (isFirstAccess) {
         document.getElementById('loader').remove();

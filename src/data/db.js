@@ -3,6 +3,8 @@ const sqlite3 = require('sqlite3')
 const sq = require('sqlite')
 const macaddress = require('macaddress');
 
+const params = require('../config/params');
+
 async function openDb () {
     const db = await sq.open({
       filename: path.join(__dirname, './database.db'),
@@ -14,27 +16,37 @@ async function openDb () {
 }
 
 async function config(db) {
-    const value = await db.get('SELECT value FROM config WHERE id = 1');
+    const value = await db.get('SELECT value FROM config WHERE id = ?', params.NOT_FIRST_OPEN);
     !value && db.run(
-        'INSERT INTO config (id, description, value) VALUES (1, "not first open app", 1)'
+        'INSERT INTO config (id, description, value) VALUES (1, "NOT_FIRST_OPEN", 1)'
     );
     db.close();
     return !value;
 }
 
+async function getParam(db, id) {
+    const value = await db.get('SELECT value FROM config WHERE id = ?', id);
+    db.close();
+    return value;
+}
+
 async function saveConfig(db, ip, filial) {
     macaddress.one(function (err, mac) {
         db.run(
-            'INSERT INTO config (id, description, value) VALUES (2, "Ipv4", ?)'
+            'INSERT INTO config (id, description, value) VALUES (2, "IPV4", ?)'
         , ip);
 
         db.run(
-            'INSERT INTO config (id, description, value) VALUES (3, "Endereço mac", ?)'
+            'INSERT INTO config (id, description, value) VALUES (3, "MAC", ?)'
         , mac);
 
         db.run(
-            'INSERT INTO config (id, description, value) VALUES (4, "Filial", ?)'
+            'INSERT INTO config (id, description, value) VALUES (4, "FILIAL", ?)'
         , filial);
+
+        db.run(
+            'INSERT INTO config (id, description, value) VALUES (5, "URL_REST", ?)'
+        , 'http://fakerestapi.azurewebsites.net/api/v1/Activities');
 
         db.close();
     });
@@ -49,5 +61,9 @@ module.exports = {
     saveConfig: async (ip, filial) => {
         const db = await openDb();
         return await saveConfig(db, ip, filial);
+    },
+    getParam: async (id) => {
+        const db = await openDb();
+        return getParam(db, id);    
     }
 }
