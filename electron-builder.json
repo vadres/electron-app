@@ -1,0 +1,10 @@
+{
+  "productName": "Reg Pointer",
+  "extraResources": [
+    {
+      "from": "./src/db/",
+      "to": "ext/",
+      "filter": [ "**/*" ]
+    }
+  ]
+}

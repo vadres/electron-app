@@ -1,10 +1,7 @@
 const message = require('./js/message');
+const rp = window.require('../src/service/registrarPontoService');
 
-async function registrarPonto() {
-    const axios = require('axios');
-    const db = require('../data/db');
-    const params = require('../config/params');
-
+async function registrarPonto() {  
     const matricula = document.getElementById('matricula');
     const senha = document.getElementById('senha');
     
@@ -18,19 +15,16 @@ async function registrarPonto() {
 
         return false;
     }
-
-    const url = await db.getParam(params.URL_REST);
     
-    await axios.post(url, {
-        matricula: matricula.value,
-        senha: senha.value
-    }).then(res => {
+    rp.registrarPonto(matricula.value, senha.value)
+    .then(res => {
         console.log(res)
         matricula.value = "";
         senha.value = "";
-    }).catch(error => {
+    })
+    .catch(error => {
         console.log(error)
-    });
+    });;
     
     return false;
 }

@@ -1,10 +1,5 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
-const db = require('./data/db')
-
-// try {
-// 	require('electron-reloader')(module);
-// } catch {}
 
 async function createWindow () {
   const win = new BrowserWindow({
@@ -35,7 +30,7 @@ async function createWindow () {
       }
   }
   
-  win.loadFile(path.join(__dirname, '/pages/index.html'))
+  win.loadFile(path.join(__dirname, './index.html'))
 
 }
 

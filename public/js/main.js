@@ -1,11 +1,11 @@
 
 const saveConfig = () => {
-    const db = window.require('../data/db');
+    const paramService = window.require('../src/service/paramService');
     const ip = document.getElementById('ip').value;
     const filial = document.getElementById('filial').value;
 
     (async () => {
-      await db.saveConfig(ip, filial);
+      await paramService.saveConfig(ip, filial);
       document.getElementById('form-setup').style.display = 'none';
       document.getElementById('form-index').style.display = 'flex';
     })()
@@ -13,10 +13,10 @@ const saveConfig = () => {
 
 (() => {
     setTimeout(async () => {
-      const db = window.require('../data/db');
-      const isFirstAccess = await db.config();  
+      const paramService = window.require('../src/service/paramService');
+      const hasConfig = await paramService.hasConfig(); 
       
-      const sec = isFirstAccess? 'form-index': 'form-setup';
+      const sec = hasConfig? 'form-index': 'form-setup';
       
       document.getElementById('loader').classList.add('fadeOut');
       document.getElementById(sec).style.display = 'none';
