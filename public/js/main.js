@@ -1,16 +1,3 @@
-
-const saveConfig = () => {
-    const paramService = window.require('../src/service/paramService');
-    const ip = document.getElementById('ip').value;
-    const filial = document.getElementById('filial').value;
-
-    (async () => {
-      await paramService.saveConfig(ip, filial);
-      document.getElementById('form-setup').style.display = 'none';
-      document.getElementById('form-index').style.display = 'flex';
-    })()
-}
-
 (() => {
     setTimeout(async () => {
       const paramService = window.require('../src/service/paramService');
@@ -32,6 +19,6 @@ const saveConfig = () => {
     }
 
     document.getElementById('ip').onkeyup = (e) => {
-        e.target.value = e.target.value.replace(/[^0-9\.]/g, ''); 
+        e.target.value = e.target.value.replace(/[^0-9.]/g, ''); 
     }
 })();

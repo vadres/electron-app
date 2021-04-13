@@ -16,7 +16,7 @@ body {
   justify-content: center;
   height: 100vh;
   font-size: 0.9em;
-  color: #333;
+  color: rgb(66, 66, 66);
 }
 
 #loader {
@@ -107,7 +107,7 @@ button {
   
   background-color: rgb(120,120,235);
   color: #fefefe;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.05);
   border-radius: 2px;
   transition: all 0.2s ease;
 }
@@ -116,6 +116,16 @@ button:hover,
 button:active,
 button:focus {
   background-color: rgb(140,140,255);
+}
+
+button:disabled {
+  cursor: default;
+  background-color: rgb(174, 174, 255);
+  color: #fff;
+}
+
+#spin-btn {
+  display: none;
 }
 
 .input-group label {
@@ -150,20 +160,22 @@ button:focus {
 }
 
 .message {
-  padding: 20px;
+  padding: 25px 20px;
   display: block;
   width: 90%;
   margin: 0 auto;
   position: absolute;
   background-color: rgb(115, 115, 115);
   color: white;
-  border: blue;
   top: 50px;
+
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 2px;
 }
 
 .message > .mclose {
   position: absolute;
-  font-size: 1.1rem;
+  font-size: 1rem;
   top: 2px;
   right: 5px;
   color: #444;
@@ -171,7 +183,8 @@ button:focus {
 }
 
 .message.success {
-  background-color: #00C851;
+  background-color: #09ac4a;
+  color: #fff;
 }
 .message.error {
   background-color: #f76969;

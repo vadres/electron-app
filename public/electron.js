@@ -14,7 +14,7 @@ async function createWindow () {
     }
   })
   
-  //win.webContents.openDevTools()
+ // win.webContents.openDevTools()
   win.setMenu(null);
 
   var os = require('os');
